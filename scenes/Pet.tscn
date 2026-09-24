@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://df64sq2vjtakl"]
+
+[ext_resource type="Script" uid="uid://bhfyrckgp7xsq" path="res://scripts/Pet.gd" id="1_am51l"]
+[ext_resource type="Texture2D" uid="uid://84pc5dkyfmvf" path="res://art/Eggs by Onocentaur/Creatures Color.png" id="1_ukryg"]
+
+[sub_resource type="Animation" id="Animation_am51l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rm00g"]
+resource_name = "bounce"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2.9281785, 2.9281785, 2.9281785),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.15, 0.85), Vector2(0.85, 1.15), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ukryg"]
+resource_name = "happy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2.9281785, 2.9281785, 2.9281785),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5707964, 3.1415927, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_js7nf"]
+_data = {
+&"RESET": SubResource("Animation_am51l"),
+&"bounce": SubResource("Animation_rm00g"),
+&"happy": SubResource("Animation_ukryg")
+}
+
+[node name="Pet" type="Node2D" unique_id=230430933]
+script = ExtResource("1_am51l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=900747206]
+texture = ExtResource("1_ukryg")
+hframes = 3
+vframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1830119917]
+libraries/ = SubResource("AnimationLibrary_js7nf")
+
+[node name="EffectParticles" type="Node2D" parent="." unique_id=1547926437]
+
+[node name="HeartParticles" type="CPUParticles2D" parent="EffectParticles" unique_id=476276450]
+emitting = false
+
+[node name="ZzzParticles" type="CPUParticles2D" parent="EffectParticles" unique_id=1112541242]
+emitting = false

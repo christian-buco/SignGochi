@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cwrr5yhtofba5"]
+
+[ext_resource type="PackedScene" uid="uid://df64sq2vjtakl" path="res://scenes/Pet.tscn" id="1_elqb8"]
+
+[node name="Main" type="Node2D" unique_id=1493109664]
+
+[node name="Pet" parent="." unique_id=230430933 instance=ExtResource("1_elqb8")]
+position = Vector2(295.00003, 198.00002)
+scale = Vector2(10, 10)
+
+[node name="Label" type="Label" parent="." unique_id=991228373]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 295.0
+offset_top = 401.0
+offset_right = 335.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
